@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>PRODUCTOS</h1>
+
+
+	
+    <div class="col-md-12">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">PRODUCTOS</h4>
+                                <p class="category">Here is a subtitle for this table</p>
+                            </div>
+                            <div class="content table-responsive table-full-width">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <th>ID</th>
+                                    	<th>Nombre</th>
+                                    	<th>Descripcion</th>
+                                    	<th>Precio</th>
+                                    	<th>Stock</th>
+                                    	<th>Proveedor</th>
+                                    	<th></th>
+                                    	<th></th>
+                                    </thead>
+                                    <tbody>
+                                    {% for producto in object_list %}
+                                        <tr>
+                                        	<td>{{ producto.id }}</td>
+                                        	<td>{{ producto.nombre }}</td>
+                                        	<td>{{ producto.descripccion }}</td>
+                                        	<td>{{ producto.precio }}</td>
+                                        	<td>{{ producto.stock }}</td>
+                                        	<td>{{ producto.descripcion }}</td>
+                                        	<td>{{ producto.proveedor }}</td>
+                                        	<th><a href="{% url "productos_edit" producto.id %}">Modificar</a></th>
+                                    		<th><a href="{% url "productos_delete" producto.id %}">Borrar</a></th>
+                                        
+                                        </tr>
+                                    {% endfor %}
+                             
+                                       
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-default"><a href="{% url "clientes_new" %}">Nuevo</a></button>
+                    </div>
+
+
+
+
+
+{% endblock %}
